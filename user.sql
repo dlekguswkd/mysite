@@ -53,3 +53,19 @@ values(null, 'jung', '1234', '정우성', '남');
 insert into users
 values(null, 'lee', '5678', '이효리', '여');
 
+
+-- 수정
+update users
+set password = '1234',
+	name = '정용화',
+	gender = '남'
+where id = 'jung'
+;
+
+
+-- 삭제
+delete from users
+where id = 'jung'
+and password = '1234'
+;
+

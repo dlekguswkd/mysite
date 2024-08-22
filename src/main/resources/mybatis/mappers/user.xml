@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="phonebook">
+
+<mapper namespace="user">
 	<!-- 쿼리문작성 -->
 	
 	<!-- 회원가입 -->
 	<insert id="insert" parameterType="com.javaex.vo.UserVo">
 		<![CDATA[
 			insert into users
-			values(null, #{id}, #{password}, #{name}, #{gender});
+			values(null, #{id}, #{password}, #{name}, #{gender})
 		]]>
 	</insert>
 	

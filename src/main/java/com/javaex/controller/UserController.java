@@ -32,16 +32,25 @@ public class UserController {
 	
 	
 	/* 회원가입 */
-	//http://localhost:8888/mysite/user/join
+	//http://localhost:8888/mysite/user/join?id=~&password=~&name=~&gender=~
 	@RequestMapping(value="/user/join", method= {RequestMethod.GET, RequestMethod.POST})
 	public String join(@ModelAttribute UserVo userVo) {
 		System.out.println("UserController.join()");
 		
-		userService.exeJoinPerson(userVo);
+		userService.exeJoinUser(userVo);
 		
-		return "";
+		return "user/joinOk";
 	}
 	
+	/* 회원가입 완료문구*/
+	//http://localhost:8888/mysite/user/joinok
+	@RequestMapping(value = "/user/joinok", method = { RequestMethod.GET, RequestMethod.POST })
+	public String joinok() {
+
+		System.out.println("UserController.joinok()");
+
+		return "user/joinOk";
+	}
 	
 	
 }

@@ -1,18 +1,22 @@
 package com.javaex.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.javaex.dao.UserDao;
+import com.javaex.vo.UserVo;
 
 @Service
 public class UserService {
 	
-	//@Autowired
-	//private UserDao userDao;
+	@Autowired
+	private UserDao userDao;
 	
 	/* 회원가입 */
-	public int exeJoinPerson() {	 
-		System.out.println("UserService.exeJoinPerson()");
+	public int exeJoinUser(UserVo userVo) {	 
+		System.out.println("UserService.exeJoinUser()");
 		
-		int count = userDao.insertPerson(userVo);
+		int count = userDao.insertUser(userVo);
 		
 		return count;
 		
