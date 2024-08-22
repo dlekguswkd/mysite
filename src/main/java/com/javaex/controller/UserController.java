@@ -39,7 +39,7 @@ public class UserController {
 		
 		userService.exeJoinUser(userVo);
 		
-		return "user/joinOk";
+		return "/user/joinOk";
 	}
 	
 	/* 회원가입 완료문구*/
@@ -49,7 +49,7 @@ public class UserController {
 
 		System.out.println("UserController.joinok()");
 
-		return "user/joinOk";
+		return "/user/joinOk";
 	}
 	
 	
