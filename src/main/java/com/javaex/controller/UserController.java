@@ -98,6 +98,31 @@ public class UserController {
 	}
 	
 	
+	// -----------------------------------------------------------------------------
+	/* 수정폼 */
+	//http://localhost:8888/mysite/user/modifyform
+	@RequestMapping(value="/user/modifyform", method = {RequestMethod.GET, RequestMethod.POST})
+	public String modifyform() {
+		System.out.println("UserController.modifyform()");
+		
+		return "user/modifyform";
+		
+	}
+	
+	/* 수정 */
+	//http://localhost:8888/mysite/user/modify
+	@RequestMapping(value="/user/modify", method = {RequestMethod.GET, RequestMethod.POST})
+	public String modify() {
+		System.out.println("UserController.modify()");
+		
+		userService.exeModify();
+		
+		return "";
+		
+	}
+	
+	
+	
 	
 	
 }

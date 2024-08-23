@@ -33,5 +33,14 @@ public class UserService {
 	}
 	
 	
+	/* 수정 */
+	public void exeModify() {
+		System.out.println("UserService.exeModify()");
+		
+		
+		
+	}
+	
+	
 
 }
