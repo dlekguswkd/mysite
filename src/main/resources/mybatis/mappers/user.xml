@@ -4,7 +4,7 @@
 
 <mapper namespace="user">
 	<!-- 쿼리문작성 -->
-	
+
 	<!-- 회원가입 -->
 	<insert id="insert" parameterType="com.javaex.vo.UserVo">
 		<![CDATA[
@@ -12,6 +12,19 @@
 			values(null, #{id}, #{password}, #{name}, #{gender})
 		]]>
 	</insert>
-	
-	
+
+
+	<!-- 로그인 -->
+	<select id="selectByIdPw" parameterType="com.javaex.vo.UserVo" resultType="com.javaex.vo.UserVo">
+		<![CDATA[
+			select no
+	 			 , name
+			from users
+			where id = #{id}
+			and password = #{password}
+		]]>
+	</select>
+
+
+
 </mapper>

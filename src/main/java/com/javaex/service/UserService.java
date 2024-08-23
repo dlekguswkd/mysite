@@ -21,5 +21,17 @@ public class UserService {
 		return count;
 		
 	}
+	
+	
+	/* 로그인 */
+	public UserVo exeLogin(UserVo userVo) {
+		System.out.println("UserService.exeLogin()");
+		
+		UserVo authUser =userDao.selectUser(userVo);
+		
+		return authUser;
+	}
+	
+	
 
 }

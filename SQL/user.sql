@@ -22,6 +22,12 @@ create database web_db
 -- 데이터베이스 조회
 show databases;
 
+-- 바로 실행
+flush privileges;
+
+-- ############################################
+-- user 만들기
+-- ############################################
 -- -----------------------------------------------------------
 -- web 계정에서 실행
 -- -----------------------------------------------------------
@@ -45,13 +51,20 @@ select no
     , gender
 from users;
 
+-- 로그인
+select no
+	 , name
+from users
+where id = '3'
+and password = '3';
+
 
 -- 넣기 (등록)
 insert into users
-values(null, 'jung', '1234', '정우성', '남');
+values(null, 'jung', '1234', '정우성', 'male');
 
 insert into users
-values(null, 'lee', '5678', '이효리', '여');
+values(null, 'lee', '5678', '이효리', 'female');
 
 
 -- 수정

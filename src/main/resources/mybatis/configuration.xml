@@ -3,7 +3,6 @@
 
 <configuration>
 	<typeAliases>
-		<typeAlias alias="UserVo" type="com.javaex.vo.UserVo" />
 	</typeAliases>
 
 	<mappers>

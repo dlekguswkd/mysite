@@ -1,49 +1,27 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
+<!-- pom.xml에 jstl 3개 넣기 ( c: 쓰기위해서 넣어주기) -->
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> 
+
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<!--    http://localhost:8888/mysite까지가  webapp 에서 시작 -->
-<link href="http://localhost:8888/mysite/assets/css/mysite.css" rel="stylesheet" type="text/css">
-<link href="/mysite/assets/css/main.css" rel="stylesheet" type="text/css">
+<!--    http://localhost:8888/mysite까지가  webapp 에서 시작 
+			${pageContext.request.contextPath}은 /mysite을 의미 -->
+<link href="${pageContext.request.contextPath}/assets/css/mysite.css" rel="stylesheet" type="text/css">
+<link href="${pageContext.request.contextPath}/assets/css/main.css" rel="stylesheet" type="text/css">
 <!--   상대경로 "./assets/css/main.css" -->
 
 </head>
 
 <body>
 	<div id="wrap">
-
-		<div id="header" class="clearfix">
-			<h1>
-				<a href="">MySite</a>
-			</h1>
-
-			<!-- 
-			<ul>
-				<li>황일영 님 안녕하세요^^</li>
-				<li><a href="" class="btn_s">로그아웃</a></li>
-				<li><a href="" class="btn_s">회원정보수정</a></li>
-			</ul>
-			-->	
-			<ul>
-				<li><a href="" class="btn_s">로그인</a></li>
-				<li><a href="" class="btn_s">회원가입</a></li>
-			</ul>
-			
-		</div>
-		<!-- //header -->
-
-		<div id="nav">
-			<ul class="clearfix">
-				<li><a href="">입사지원서</a></li>
-				<li><a href="">게시판</a></li>
-				<li><a href="">갤러리</a></li>
-				<li><a href="">방명록</a></li>
-			</ul>
-		</div>
-		<!-- //nav -->
+	
+		<!-- header에 빼놓은거 불러오기 (header, nav)-->
+		<c:import url="/WEB-INF/views/include/header.jsp"></c:import>
 
 		
 		<div id="container" class="clearfix">
@@ -53,7 +31,7 @@
 				<!-- content-head 없음 -->
 				<div id="index"> 
 				
-					<img id="profile-img" src="/mysite/assets/images/profile.jpg">
+					<img id="profile-img" src="${pageContext.request.contextPath}/assets/images/profile.jpg">
 					
 					<div id="greetings">
 						<p class="text-xlarge">
@@ -88,11 +66,9 @@
 		</div>
 		<!-- //container -->
 		
-		
-		<div id="footer">
-			Copyright ⓒ 2020 황일영. All right reserved
-		</div>
-		<!-- //footer -->
+		<!-- footer에 빼놓은거 불러오기 (footer)-->
+		<c:import url="/WEB-INF/views/include/footer.jsp"></c:import>
+
 
 	</div>
 	<!-- //wrap -->
