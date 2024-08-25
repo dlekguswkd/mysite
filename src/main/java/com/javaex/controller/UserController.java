@@ -2,6 +2,7 @@ package com.javaex.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -99,11 +100,18 @@ public class UserController {
 	
 	
 	// -----------------------------------------------------------------------------
+	
 	/* 수정폼 */
 	//http://localhost:8888/mysite/user/modifyform
 	@RequestMapping(value="/user/modifyform", method = {RequestMethod.GET, RequestMethod.POST})
-	public String modifyform() {
+	public String modifyform(HttpSession session, Model model) {
 		System.out.println("UserController.modifyform()");
+		
+	    //로그인된 사용자 정보 가져오기
+	    UserVo authUser = (UserVo) session.getAttribute("authUser");
+
+	    model.addAttribute("userVo", authUser);
+	    System.out.println(authUser);
 		
 		return "user/modifyform";
 		
@@ -112,12 +120,14 @@ public class UserController {
 	/* 수정 */
 	//http://localhost:8888/mysite/user/modify
 	@RequestMapping(value="/user/modify", method = {RequestMethod.GET, RequestMethod.POST})
-	public String modify() {
+	public String modify(@ModelAttribute UserVo userVo, HttpSession session) {
 		System.out.println("UserController.modify()");
 		
-		userService.exeModify();
+		UserVo authUser = userService.exeModify(userVo);
 		
-		return "";
+		session.setAttribute("authUser", authUser);
+		
+		return "redirect:/main";
 		
 	}
 	

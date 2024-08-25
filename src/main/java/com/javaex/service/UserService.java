@@ -32,12 +32,13 @@ public class UserService {
 		return authUser;
 	}
 	
-	
 	/* 수정 */
-	public void exeModify() {
+	public UserVo exeModify(UserVo userVo) {
 		System.out.println("UserService.exeModify()");
 		
+		userDao.updateUser(userVo);
 		
+		return userVo;
 		
 	}
 	

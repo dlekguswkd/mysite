@@ -36,4 +36,16 @@ public class UserDao {
 		
 		return authUser;
 	}
+	
+	
+	//수정 
+	public UserVo updateUser(UserVo userVo) {
+		System.out.println("UserDao.updateUser()");
+		
+		sqlSession.update("user.updateUser", userVo);
+		
+		return userVo;
+	}
+	
+	
 }
