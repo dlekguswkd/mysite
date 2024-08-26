@@ -109,9 +109,11 @@ public class UserController {
 		
 	    //로그인된 사용자 정보 가져오기
 	    UserVo authUser = (UserVo) session.getAttribute("authUser");
+	    
+	    int no = authUser.getNo();
 
-	    model.addAttribute("userVo", authUser);
-	    System.out.println(authUser);
+	    model.addAttribute("userVo", no);
+	    //System.out.println(authUser);
 		
 		return "user/modifyform";
 		

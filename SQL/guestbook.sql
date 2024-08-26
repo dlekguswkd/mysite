@@ -10,21 +10,12 @@ drop table guestbook;
 -- guestbook 테이블 생성
 create table guestbook(
 	no integer primary key auto_increment,
-    name varchar(20),
-    password varchar(20),
+    name varchar(20) not null,
+    password varchar(20) not null,
     content text,
 	reg_date datetime
 );
 
-create table guestbook(
-	no integer primary key auto_increment,
-    name varchar(20),
-    password varchar(20),
-    content text,
-	reg_date datetime,
-    user_no integer not null,
-    FOREIGN KEY(user_no) REFERENCES users(no)
-);
 
 -- 조회
 select * from guestbook;
@@ -36,35 +27,16 @@ select 	no,
         reg_date
 from guestbook;
 
-select 	no,
-		name,
-        password,
-		content,
-        reg_date,
-        user_no
-from guestbook;
 
 -- 등록
-insert into guestbook (name, password, content) 
-values ();
+insert into guestbook
+values (null, 'aaa', 'aaa', '안녕하세요', now());
 
-insert into guestbook (name, password, content, user_no) 
-values ();
+insert into guestbook
+values (null, 'bbb', 'bbb', 'b입니다', now());
 
 
 -- 삭제
 delete from guestbook 
-where password = '' 
-and no = ;
-
-
-CREATE TABLE guestbook (
-    no INT PRIMARY KEY AUTO_INCREMENT,
-    content TEXT,
-    reg_date datetime,
-    user_no INT NOT NULL,
-    FOREIGN KEY (user_no) REFERENCES users(no)
-);
-
-insert into guestbook (content, user_no) 
-values ('안녕하세요', 1);
+where name = 'aaa' 
+and password = 'aaa';
