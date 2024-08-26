@@ -110,9 +110,9 @@ public class UserController {
 	    //로그인된 사용자 정보 가져오기
 	    UserVo authUser = (UserVo) session.getAttribute("authUser");
 	    
-	    int no = authUser.getNo();
+	    //int no = authUser.getNo();
 
-	    model.addAttribute("userVo", no);
+	    model.addAttribute("userVo", authUser);
 	    //System.out.println(authUser);
 		
 		return "user/modifyform";
@@ -120,7 +120,7 @@ public class UserController {
 	}
 	
 	/* 수정 */
-	//http://localhost:8888/mysite/user/modify
+	//http://localhost:8888/mysite/user/modify?password=~&name=~&gender=~
 	@RequestMapping(value="/user/modify", method = {RequestMethod.GET, RequestMethod.POST})
 	public String modify(@ModelAttribute UserVo userVo, HttpSession session) {
 		System.out.println("UserController.modify()");
@@ -128,6 +128,9 @@ public class UserController {
 		UserVo authUser = userService.exeModify(userVo);
 		
 		session.setAttribute("authUser", authUser);
+		
+		//UserVo authUser = (UserVo)session.getAttribute("authUser") 
+		//authUser.setName(userVo.getName());
 		
 		return "redirect:/main";
 		

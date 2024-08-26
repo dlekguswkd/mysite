@@ -46,14 +46,20 @@ public class GuestbookController {
 		
 	}
 	
-	/* 방명록 삭제 폼 */
+	/* 방명록 삭제폼 */
 	//http://localhost:8888/mysite/guestbook/deleteform
 	@RequestMapping(value="/guestbook/deleteform", method = { RequestMethod.GET, RequestMethod.POST }) 
 	public String deleteForm() {
-		
 		System.out.println("GuestbookController.deleteForm()");
+		
+		//no값을 숨겨놔야한다
 		
 		return "guestbook/deleteForm";
 	}
+	
+	
+	/* 방명록 삭제 */
+	//http://localhost:8888/mysite/guestbook/delete?no=~&password=~
 
+	
 }
