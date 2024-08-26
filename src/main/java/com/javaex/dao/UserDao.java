@@ -38,13 +38,31 @@ public class UserDao {
 	}
 	
 	
+	//수정폼
+	public UserVo getUserOne(UserVo userVo) {
+		System.out.println("UserDao.getUserOne()");
+		
+		UserVo authUser = sqlSession.selectOne("user.selectByNoName", userVo);
+		
+		System.out.println(authUser); //------
+		
+		return authUser;
+		
+	}
+
+	
 	//수정 
 	public UserVo updateUser(UserVo userVo) {
 		System.out.println("UserDao.updateUser()");
 		
-		sqlSession.update("user.updateUser", userVo);
+		int count = sqlSession.update("user.updateUser", userVo);
 		
-		return userVo;
+		if (count == 1) { 
+			return userVo;  
+		}else { 
+			return null;
+		}
+		
 	}
 	
 	

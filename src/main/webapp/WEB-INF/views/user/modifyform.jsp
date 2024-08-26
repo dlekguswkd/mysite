@@ -52,13 +52,13 @@
 							<!-- 아이디 -->
 							<div class="form-group">
 								<label class="form-text" for="input-uid">아이디</label> 
-								<span class="text-large bold">${sessionScope.authUser.id}</span>
+								<span class="text-large bold">${userVo.id}</span>
 							</div>
 	
 							<!-- 비밀번호 -->
 							<div class="form-group">
 								<label class="form-text" for="input-pass">패스워드</label> 
-								<input type="text" id="input-pass" name="password" value="${sessionScope.authUser.password}" placeholder="비밀번호를 입력하세요"	>
+								<input type="text" id="input-pass" name="password" value="${userVo.password}" placeholder="비밀번호를 입력하세요"	>
 							</div>
 	
 							<!-- 이메일 -->
@@ -72,10 +72,10 @@
 								<span class="form-text">성별</span> 
 								
 								<label for="rdo-male">남</label> 
-								<input type="radio" id="rdo-male" name="gender" value="${sessionScope.authUser.gender}"> 
+								<input type="radio" id="rdo-male" name="gender" value="male" <c:if test="${userVo.gender == 'male'}">checked</c:if> > 
 								
 								<label for="rdo-female">여</label> 
-								<input type="radio" id="rdo-female" name="gender" value="${sessionScope.authUser.gender}"> 
+								<input type="radio" id="rdo-female" name="gender" value="female" <c:if test="${userVo.gender == 'female'}">checked</c:if> > 
 
 							</div>
 							<!--         hidden 으로 교체하기 -->

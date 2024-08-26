@@ -32,13 +32,23 @@ public class UserService {
 		return authUser;
 	}
 	
+	/* 수정폼 */
+	public UserVo exeGetUserOne(UserVo userVo) {
+		System.out.println("UserService.exeGetUserOne()");
+		
+		UserVo authUser = userDao.getUserOne(userVo);
+		
+		return authUser;
+		
+	}
+	
 	/* 수정 */
 	public UserVo exeModify(UserVo userVo) {
 		System.out.println("UserService.exeModify()");
 		
-		userDao.updateUser(userVo);
+		UserVo authUser = userDao.updateUser(userVo);
 		
-		return userVo;
+		return authUser;
 		
 	}
 	
