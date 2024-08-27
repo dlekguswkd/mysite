@@ -48,7 +48,7 @@
 		set		password = #{password}
 				,name = #{name}
 				,gender = #{gender}
-		where id = #{id}
+		where no= #{no}
 		]]>
 	</update>
 
