@@ -108,6 +108,8 @@ public class UserController {
 		System.out.println("UserController.modifyform()");
 		
 	    //로그인된 사용자 정보 가져오기
+		System.out.println(" 보내기용" + session.getAttribute("authUser"));
+		
 	    UserVo userVo = userService.exeGetUserOne((UserVo)session.getAttribute("authUser"));
 	    
 	    model.addAttribute(userVo);
