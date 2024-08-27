@@ -21,28 +21,30 @@ public class GuestbookController {
 	
 
 	/* 방명록폼 (리스트도 보이기) */
-	//http://localhost:8888/mysite/guestbook/guestbookForm
-	@RequestMapping(value="/guestbook/guestbookForm", method= {RequestMethod.GET, RequestMethod.POST})
+	//http://localhost:8888/mysite/guestbook/guestbookform
+	@RequestMapping(value="/guestbook/guestbookform", method= {RequestMethod.GET, RequestMethod.POST})
 	public String guestbookForm(Model model) {
 		System.out.println("GuestbookController.guestbookForm()");
 		
-		List<GuestbookVo> guestbookList = guestbookService.exeGetGuestList();
+		//List<GuestbookVo> guestbookList = guestbookService.exeGetGuestList();
 		
-		model.addAttribute("guestbookList", guestbookList);
+		//model.addAttribute("guestbookList", guestbookList);
+		
+		//System.out.println("여기요"+guestbookList);
 		
 		return "guestbook/addList";
 	}
 	
 	
 	/* 방명록 등록 */
-	//http://localhost:8888/mysite/guestbook/guestbookWrite?
-	@RequestMapping(value="/guestbook/guestbookWrite", method= {RequestMethod.GET, RequestMethod.POST})
+	//http://localhost:8888/mysite/guestbook/guestbookwrite?
+	@RequestMapping(value="/guestbook/guestbookwrite", method= {RequestMethod.GET, RequestMethod.POST})
 	public String guestbookWrite(@ModelAttribute GuestbookVo guestbookVo) {
 		System.out.println("GuestbookController.guestbookWrite()");
 		
 		guestbookService.exeWriteGuestbook(guestbookVo);
 		
-		return "redirect:/guestbook/addList";
+		return "redirect:/guestbook/guestbookform";
 		
 	}
 	

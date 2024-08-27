@@ -78,8 +78,8 @@
 								<input type="radio" id="rdo-female" name="gender" value="female" <c:if test="${userVo.gender == 'female'}">checked</c:if> > 
 
 							</div>
-							<!--         hidden 으로 교체하기 -->
-							<input type="text" name="no" value="${sessionScope.authUser.no}">
+							<!--         text 로 교체하면 보임 -->
+							<input type="hidden" name="no" value="${sessionScope.authUser.no}">
 	
 							<!-- 버튼영역 -->
 							<div class="button-area">

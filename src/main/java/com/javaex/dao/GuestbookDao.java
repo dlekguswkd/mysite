@@ -16,10 +16,11 @@ public class GuestbookDao {
 	
 	/* 방명록폼 (리스트도 보이기) */
 	public List<GuestbookVo> getGuestbookList() {
-		System.out.println("GuestbookDao.exeGetGuestList()");
+		System.out.println("GuestbookDao.getGuestbookList()");
 		
 		List<GuestbookVo> guestbookList =sqlSession.selectList("guestbook.selectList");
 		
+		System.out.println(guestbookList);
 		return guestbookList;
 		
 	}

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.javaex.dao.GuestbookDao;
 import com.javaex.vo.GuestbookVo;
-
+ 
 @Service
 public class GuestbookService {
 	
@@ -19,6 +19,8 @@ public class GuestbookService {
 		System.out.println("GuestbookService.exeGetGuestList()");
 		
 		List<GuestbookVo> guestbookList = guestbookDao.getGuestbookList();
+		
+		//System.out.println(guestbookList);
 		
 		return guestbookList;
 	}
