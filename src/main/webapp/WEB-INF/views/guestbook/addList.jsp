@@ -74,7 +74,7 @@
 
 					</form>
 
-				<c:forEach items="${requestScope.guestbookList}" var="guestbookVo">
+					<c:forEach items="${requestScope.guestbookList}" var="guestbookVo">
 					<table class="guestRead">
 						<colgroup>
 							<col style="width: 10%;">
@@ -92,9 +92,9 @@
 							<td colspan=4 class="text-left">${guestbookVo.content}</td>
 						</tr>
 					</table>
-				</c:forEach>
+					</c:forEach>
 					<!-- //guestRead -->
-
+			
 				</div>
 				<!-- //guestbook -->
 

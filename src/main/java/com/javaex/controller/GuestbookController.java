@@ -26,13 +26,14 @@ public class GuestbookController {
 	public String guestbookForm(Model model) {
 		System.out.println("GuestbookController.guestbookForm()");
 		
-		//List<GuestbookVo> guestbookList = guestbookService.exeGetGuestList();
+		List<GuestbookVo> guestbookList = guestbookService.exeGetGuestList();
 		
-		//model.addAttribute("guestbookList", guestbookList);
+		model.addAttribute("guestbookList", guestbookList);
 		
-		//System.out.println("여기요"+guestbookList);
+		System.out.println("여기요"+guestbookList);
 		
 		return "guestbook/addList";
+		
 	}
 	
 	

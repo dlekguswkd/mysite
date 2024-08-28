@@ -18,7 +18,7 @@
 	
 	
 	<!-- 방명록 등록 -->
-	<insert id="insert" parameterType="GuestbookVo">
+	<insert id="insert" parameterType="com.javaex.vo.GuestbookVo">
 		<![CDATA[   
 			insert into guestbook (name, password, content) 
 			values (#{name}, #{password}, #{content})
