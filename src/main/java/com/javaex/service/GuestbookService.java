@@ -25,12 +25,23 @@ public class GuestbookService {
 		return guestbookList;
 	}
 	
+	
 	/* 방명록 등록 */
 	public int exeWriteGuestbook(GuestbookVo guestbookVo) {
 		
 		int count = guestbookDao.insertGuestbook(guestbookVo);
 		
 		return count;
+	}
+	
+	
+	/* 방명록 삭제 */
+	public GuestbookVo exeDeleteGuestbook(GuestbookVo guestbookVo){
+		System.out.println("GuestbokService.exeDeleteGuestbook()");
+		
+		GuestbookVo deleteGuestbook =guestbookDao.deleteGuestbook(guestbookVo);
+		
+		return deleteGuestbook;
 	}
 
 }

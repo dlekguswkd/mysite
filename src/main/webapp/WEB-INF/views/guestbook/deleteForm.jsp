@@ -45,7 +45,7 @@
 				<!-- //content-head -->
 
 				<div id="guestbook">
-					<form action="" method="">
+					<form action="${pageContext.request.contextPath}/guestbook/guestbookdelete" method="get">
 						<table id="guestDelete">
 							<colgroup>
 								<col style="width: 10%;">
@@ -60,8 +60,8 @@
 								<td><a href="${pageContext.request.contextPath}/main">[메인으로 돌아가기]</a></td>
 							</tr>
 						</table>
-						<input type='hidden' name="" value=""> 
-						<input type='hidden' name="" value="">
+						<input type='text' name="no" value="${param.no}"> 
+						<!-- <input type='hidden' name="" value=""> -->
 					</form>
 
 				</div>
