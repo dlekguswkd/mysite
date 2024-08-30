@@ -73,4 +73,20 @@ public class GuestbookController {
 	}
 
 	
+	/* ---------------------------------------------------------------------- */
+	///////////////////////////////////////////////////////////////////////////
+	
+	/* ajaxindex  화면 뿌리기 */
+	//http://localhost:8888/mysite/guestbook/ajaxindex
+	@RequestMapping(value="/guestbook/ajaxindex", method= {RequestMethod.GET, RequestMethod.POST})
+	public String ajaxindex() {
+		System.out.println("GuestbookController.ajaxindex");
+		
+		// 방명록 데이터 리스트 가져오지 않는다
+		
+		return "guestbook/ajaxindex";
+	}
+	
+	
+	
 }

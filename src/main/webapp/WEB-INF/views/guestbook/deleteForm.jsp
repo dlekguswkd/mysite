@@ -60,7 +60,8 @@
 								<td><a href="${pageContext.request.contextPath}/main">[메인으로 돌아가기]</a></td>
 							</tr>
 						</table>
-						<input type='text' name="no" value="${param.no}">
+						<!--         text로 바꾸면 보임  -->
+						<input type='hidden' name="no" value="${param.no}">
 						<input type='hidden' name="" value="">
 					</form>
 

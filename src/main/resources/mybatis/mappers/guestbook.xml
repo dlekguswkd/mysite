@@ -13,6 +13,7 @@
         			, content
         			, reg_date as regDate
 			from guestbook		
+			order by no desc
 		]]>
 	</select>
 	
