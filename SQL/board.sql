@@ -92,3 +92,18 @@ where no = '2'
 update board
 set hit = hit+1
 where no = 1;
+
+////////////////////////////////////////
+ -- 조회수 증가
+DELIMITER //
+
+CREATE PROCEDURE increaseHitCount(IN postHit INT)
+BEGIN
+    UPDATE board
+    SET hit = hit + 1
+    WHERE no = postHit;
+END //
+
+DELIMITER ;
+
+CALL increaseHitCount(1);

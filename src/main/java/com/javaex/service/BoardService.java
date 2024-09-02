@@ -29,29 +29,37 @@ public class BoardService {
 	public BoardVo exeGetReadOne(int no) {
 		System.out.println("boardService.exeGetReadOne()");
 		
-		BoardVo boardVo = boardDao.getRead(no);
+		BoardVo boardVo;
+		
+		int result = boardDao.increaseHitCount(no);
+		
+		if (result == 1) {
+			boardVo = boardDao.getRead(no);
+		} else {
+			boardVo = null;
+		}
 		
 		return boardVo;
 	}
 	
 	
 	/* 게시판 쓰기(등록) */
-	public String exeboardWrite() {
+	public BoardVo exeboardWrite(BoardVo boardVo) {
 		System.out.println("boardService.exeboardWrite()");
 		
-		boardDao.getInsert();
+		BoardVo insertVo = boardDao.getInsert(boardVo);
 		
-		return "";
+		return insertVo;
 	}
 	
 	
 	/* 게시판 수정  */
-	public int exeboardModify() {
+	public BoardVo exeboardModify(BoardVo boardVo ) {
 		System.out.println("boardService.exeboardModify()");
 		
-		boardDao.boardModify();
+		BoardVo updateVo = boardDao.getUpdate(boardVo);
 		
-		return 1;
+		return updateVo;
 	}
 	
 

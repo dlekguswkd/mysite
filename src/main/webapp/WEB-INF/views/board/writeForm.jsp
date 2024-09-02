@@ -23,7 +23,7 @@
 			<div id="aside">
 				<h2>게시판</h2>
 				<ul>
-					<li><a href="">일반게시판</a></li>
+					<li><a href="${pageContext.request.contextPath}/board/boardlist">일반게시판</a></li>
 					<li><a href="">댓글게시판</a></li>
 				</ul>
 			</div>
@@ -46,7 +46,7 @@
 	
 				<div id="board">
 					<div id="writeForm">
-						<form action="#" method="get">
+						<form action="${pageContext.request.contextPath}/board/boardwrite" method="get">
 							<!-- 제목 -->
 							<div class="form-group">
 								<label class="form-text" for="txt-title">제목</label>

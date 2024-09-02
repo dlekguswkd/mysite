@@ -23,7 +23,7 @@
 			<div id="aside">
 				<h2>게시판</h2>
 				<ul>
-					<li><a href="">일반게시판</a></li>
+					<li><a href="${pageContext.request.contextPath}/board/boardlist">일반게시판</a></li>
 					<li><a href="">댓글게시판</a></li>
 				</ul>
 			</div>
@@ -74,7 +74,7 @@
 										<td>${boardVo.regDate}</td>
 										
 										<!-- 로그인했을때 no가 같을때(본인꺼) -->
-										<c:if test="${sessionScope.authUser.no == boardVo.no}">
+										<c:if test="${sessionScope.authUser.no == boardVo.userNo}">
 											<td><a href="">[삭제]</a></td>
 										</c:if>
 									</tr>
@@ -104,7 +104,7 @@
 						
 						<!-- 로그인했을때 -->
 						<c:if test="${sessionScope.authUser != null}">
-							<a id="btn_write" href="${pageContext.request.contextPath}/board/writeform">글쓰기</a>
+							<a id="btn_write" href="${pageContext.request.contextPath}/board/boardwriteform">글쓰기</a>
 						</c:if>
 					
 					</div>

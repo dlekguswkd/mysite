@@ -23,7 +23,7 @@
 			<div id="aside">
 				<h2>게시판</h2>
 				<ul>
-					<li><a href="">일반게시판</a></li>
+					<li><a href="${pageContext.request.contextPath}/board/boardlist">일반게시판</a></li>
 					<li><a href="">댓글게시판</a></li>
 				</ul>
 			</div>
@@ -46,23 +46,23 @@
 
 				<div id="board">
 					<div id="modifyForm">
-						<form action="#" method="get">
+						<form action="${pageContext.request.contextPath}/board/boardmodify" method="get">
 							<!-- 작성자 -->
 							<div class="form-group">
 								<span class="form-text">작성자</span> 
-								<span class="form-value">${boardVo.name}</span>
+								<span class="form-value" name="name" value="">${boardVo.name}</span>
 							</div>
 
 							<!-- 조회수 -->
 							<div class="form-group">
 								<span class="form-text">조회수</span> 
-								<span class="form-value">${boardVo.hit}</span>
+								<span class="form-value" name="" value="">${boardVo.hit}</span>
 							</div>
 
 							<!-- 작성일 -->
 							<div class="form-group">
 								<span class="form-text">작성일</span> 
-								<span class="form-value">${boardVo.regDate}</span>
+								<span class="form-value" name="" value="">${boardVo.regDate}</span>
 							</div>
 
 							<!-- 제목 -->
@@ -75,11 +75,13 @@
 
 							<!-- 내용 -->
 							<div class="form-group">
-								<textarea id="txt-content" name="content">${boardVo.content}</textarea>
+								<textarea id="txt-content" name="content" value="">${boardVo.content}</textarea>
 							</div>
+							
 
 							<a id="btn_cancel" href="${pageContext.request.contextPath}/board/boardlist">취소</a>
 							<button id="btn_modify" type="submit">수정</button>
+							<!-- 글번호 -->
 							<input type="hidden" name="no" value="${boardVo.no}">
 
 						</form>

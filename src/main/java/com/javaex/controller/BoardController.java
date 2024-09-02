@@ -5,12 +5,16 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.javaex.service.BoardService;
 import com.javaex.vo.BoardVo;
+import com.javaex.vo.UserVo;
+
+import jakarta.servlet.http.HttpSession;
 
 
 @Controller
@@ -58,23 +62,30 @@ public class BoardController {
 	
 	
 	/* 게시판 쓰기(등록) */
-	//http://localhost:8888/mysite/board/boardwrite			////////////////////////////////////////
+	//http://localhost:8888/mysite/board/boardwrite		
 	@RequestMapping(value="/board/boardwrite", method= {RequestMethod.GET, RequestMethod.POST})
-	public String boardWrite() {
+														// , HttpSession session
+	public String boardWrite(@ModelAttribute BoardVo boardVo) {
 		System.out.println("BoardController.boardWrite()");
 		
-		boardService.exeboardWrite();
+		BoardVo insertVo = boardVo;
+		
+		BoardVo returnVo = boardService.exeboardWrite(boardVo);
 	
-		return "";
+		return "redirect:/board/boardlist";
 	}
 	
 	
 	/* 게시판 수정폼  */
 	//http://localhost:8888/mysite/board/boardmodifyform
 	@RequestMapping(value="/board/boardmodifyform", method= {RequestMethod.GET, RequestMethod.POST})
-	public String boardModifyform() {
+	public String boardModifyform(@RequestParam(value="no") int no, Model model) {
 		System.out.println("boardController.boardModifyform()");
 
+		BoardVo boardVo = boardService.exeGetReadOne(no);
+		
+		model.addAttribute("boardVo", boardVo);	
+		
 		return "board/modifyForm";
 	}
 	
@@ -82,12 +93,12 @@ public class BoardController {
 	/* 게시판 수정  */
 	//http://localhost:8888/mysite/board/boardmodify
 	@RequestMapping(value="/board/boardmodify", method= {RequestMethod.GET, RequestMethod.POST})
-	public String boardModify() {
+	public String boardModify(@ModelAttribute BoardVo boardVo) {
 		System.out.println("boardController.boardModify()");
 		
-		boardService.exeboardModify();
+		BoardVo updateVo = boardService.exeboardModify(boardVo);
 
-		return "";
+		return "redirect:/board/boardlist";
 	}
 	
 	

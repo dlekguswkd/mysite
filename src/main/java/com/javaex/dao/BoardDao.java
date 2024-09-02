@@ -35,22 +35,46 @@ public class BoardDao {
 
 	
 	/* 게시판 쓰기(등록) */
-	public String getInsert() {
+	public BoardVo getInsert(BoardVo boardVo) {
 		System.out.println("boardDao.getInsert()");
 		
-//		int count = sqlSession.insert("board.insert", boardVo);		
+		int count = sqlSession.insert("board.insert", boardVo);		
 
-		return "";
+		if (count == 1) {
+			return boardVo;
+		} else {
+			return null;
+		}
 	}
 	
 	
+	/* 게시판 수정폼 */
+	public int increaseHitCount(int no) {
+		System.out.println("boardDao.increaseHitCount()");
+		
+		int result = sqlSession.update("board.increaseHitCount", no);	
+		
+		if (result == 1) {
+			return result;
+		} else {
+			return 0;
+		}
+		
+	}
+	
+
 	/* 게시판 수정 */
-	public int boardModify() {
-		System.out.println("BoardDao.boardModify()");
+	public BoardVo getUpdate(BoardVo boardVo) {
+		System.out.println("BoardDao.getUpdate()");
 		
-//		int count = sqlSession.update("board.update", boardVo);
-		
-		return 1;
+		int count = sqlSession.update("board.update", boardVo);
+	
+		if (count == 1) {
+			return boardVo;
+		} else {
+			return null;
+		}
 	}
 
+	
 }

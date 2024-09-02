@@ -23,7 +23,7 @@
 			<div id="aside">
 				<h2>게시판</h2>
 				<ul>
-					<li><a href="">일반게시판</a></li>
+					<li><a href="${pageContext.request.contextPath}/board/boardlist">일반게시판</a></li>
 					<li><a href="">댓글게시판</a></li>
 				</ul>
 			</div>
@@ -79,8 +79,8 @@
 							</div>
 							
 							<!-- 로그인했을때 -->
-							<c:if test="${sessionScope.authUser.no == boardVo.no}">
-							<a id="btn_modify" href="<%-- ${pageContext.request.contextPath}/board/modifyform?no=${boardVo.no} --%>">수정</a>
+							<c:if test="${sessionScope.authUser.no == boardVo.userNo}">
+							<a id="btn_modify" href="${pageContext.request.contextPath}/board/modifyform?no=${boardVo.no}">수정</a>
 							</c:if>
 							<a id="btn_modify" href="${pageContext.request.contextPath}/board/boardlist">목록</a>
 							
