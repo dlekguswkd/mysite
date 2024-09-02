@@ -48,6 +48,7 @@ public class GuestbookController {
 		return "redirect:/guestbook/guestbookform";
 	}
 	
+	
 	/* 방명록 삭제폼 */
 	//http://localhost:8888/mysite/guestbook/deleteform
 	@RequestMapping(value="/guestbook/deleteform",method= {RequestMethod.GET, RequestMethod.POST}) 

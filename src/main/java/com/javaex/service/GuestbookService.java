@@ -43,5 +43,24 @@ public class GuestbookService {
 		
 		return deleteGuestbook;
 	}
+	
+	
+	/* ajax 등록 저장 */
+	public GuestbookVo exeAddandGuest(GuestbookVo guestbookVo){
+		System.out.println("GuestbokService.exeAddandGuest()");
+		//////////비지니스 로직
+		//System.out.println(guestbookVo);
+		// 저장
+		int count = guestbookDao.insertSelectKey(guestbookVo);
+		//System.out.println(guestbookVo);
+		
+		// 1명 데이터 가져오기
+		GuestbookVo gVo = guestbookDao.guestbookselectOne(guestbookVo.getNo());	// guestbookVo에서 no를 가져와야함
+		//////////////////////////////////////////////
+		
+		return gVo;
+		
+	}
+	
 
 }

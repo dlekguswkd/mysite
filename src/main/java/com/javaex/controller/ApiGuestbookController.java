@@ -25,7 +25,7 @@ public class ApiGuestbookController {
 	public List<GuestbookVo> list() {
 		System.out.println("ApiGuestbookController.list()");
 		
-		List<GuestbookVo> guestbookList = guestbookService.exeGetGuestList();
+		List<GuestbookVo> guestbookList = guestbookService.exeGetGuestList();	//게스트북서비스에서 가져옴(뒤에 주루룩)(컨트롤꺼 가져옴)
 		System.out.println(guestbookList);
 		
 		return guestbookList;
@@ -34,14 +34,38 @@ public class ApiGuestbookController {
 	
 	// 방명록 등록
 	//http://localhost:8888/mysite/guestbook/ajaxindex 에서 등록버튼 눌렀을때 일어나는일
+	@ResponseBody		// 응답을 json
 	@RequestMapping(value="/api/guestbook/write", method= {RequestMethod.GET, RequestMethod.POST})
-	public String write(@ModelAttribute GuestbookVo guestbookVo) {
+	public GuestbookVo write(@ModelAttribute GuestbookVo guestbookVo) {
 		System.out.println("ApiGuestbookController.write()");
 		
-		System.out.println(guestbookVo);
+		// int count = guestbookService.exeWriteGuestbook(guestbookVo);		//게스트북서비스에서 가져옴(뒤에 주루룩)(컨트롤꺼 가져옴)
+																			// 이걸로하면 regDate가 안옴 문제가 생김
 		
-		return "";
+		System.out.println(guestbookVo);		// 데이터 3개짜리 vo
+		// 가져오기
+		GuestbookVo gVo = guestbookService.exeAddandGuest(guestbookVo);
+		System.out.println(gVo);		// 데이터 5개짜리 vo
+		
+//		System.out.println(guestbookVo);
+//		System.out.println(count);
+		
+		return gVo;
 	}
 
+	
+	// 방명록 삭제
+	//http://localhost:8888/mysite/guestbook/remove
+	@ResponseBody
+	@RequestMapping(value="/api/guestbook/remove", method= {RequestMethod.GET, RequestMethod.POST})
+	public GuestbookVo remove(@ModelAttribute GuestbookVo guestbookVo) {
+		System.out.println("ApiGuestbookController.remove()");
+		System.out.println(guestbookVo);
+		
+		GuestbookVo gVo = guestbookService.exeDeleteGuestbook(guestbookVo);
+		System.out.println(gVo);
+		return gVo;
+	}
+	
 	
 }

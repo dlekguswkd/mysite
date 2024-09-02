@@ -29,7 +29,7 @@
 		            , b.hit as hit
 		            , b.reg_date as regDate
 		            , b.user_no as userNo
-		            , u.name as userName
+		            , u.name as name
 		    from board b, users u
 		    where b.user_no  = u.no
 		    and b.no  = #{no}

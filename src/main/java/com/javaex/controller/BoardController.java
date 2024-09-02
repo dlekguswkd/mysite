@@ -34,7 +34,7 @@ public class BoardController {
 	
 	
 	/* 게시판 읽기 */
-	//http://localhost:8888/mysite/board/boardread ////////////////////////////////////////////////////////
+	//http://localhost:8888/mysite/board/boardread?no=~ 
 	@RequestMapping(value="/board/boardread", method= {RequestMethod.GET, RequestMethod.POST})
 	public String boardRead(@RequestParam(value="no") int no, Model model) {
 		System.out.println("BoardController.boardRead()");
@@ -48,7 +48,7 @@ public class BoardController {
 	
 	
 	/* 게시판 쓰기폼 */
-	//http://localhost:8888/mysite/board/boardwriteform
+	//http://localhost:8888/mysite/board/boardwriteform	
 	@RequestMapping(value="/board/boardwriteform", method= {RequestMethod.GET, RequestMethod.POST})
 	public String boardWriteform() {
 		System.out.println("BoardController.boardWriteform()");
@@ -58,7 +58,7 @@ public class BoardController {
 	
 	
 	/* 게시판 쓰기(등록) */
-	//http://localhost:8888/mysite/board/boardwrite
+	//http://localhost:8888/mysite/board/boardwrite			////////////////////////////////////////
 	@RequestMapping(value="/board/boardwrite", method= {RequestMethod.GET, RequestMethod.POST})
 	public String boardWrite() {
 		System.out.println("BoardController.boardWrite()");
