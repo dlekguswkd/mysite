@@ -4,4 +4,12 @@
 <mapper namespace="attach">
 	<!-- 쿼리문작성 -->
 	
+	<!-- 파일 db에 저장 -->
+	<insert id="insert" parameterType="com.javaex.vo.AttachVo">
+		<![CDATA[   
+			insert into attach 
+			values (null, #{orgName}, #{saveName}, #{fileSize}, #{filePath})
+		]]>
+	</insert>
+	
 </mapper>

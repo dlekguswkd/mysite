@@ -55,11 +55,12 @@ public class AttachService {
 		// (1) db 저장    service에서 만들어낸 정보라서 new로 해야함
 		// (1-1) 데이터 묶기
 		AttachVo attachVo = new AttachVo(orgName, saveName, fileSize, filePath);
-		System.out.println(attachVo);
+		System.out.println("attachVo: " + attachVo);
 
 		// (1-2) dao를 통해서 db에 저장
 		// 과제....db에  table만들기
-		System.out.println("과제: db 저장중...");
+		//System.out.println("과제: db 저장중...");
+		attachDao.insertFile(attachVo);
 		
 		
 		// System.out.println(count); 

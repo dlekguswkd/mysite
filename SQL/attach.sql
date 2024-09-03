@@ -19,3 +19,14 @@ create table attach (
 
 -- 조회
 select * from attach;
+
+
+-- 리스트
+select no
+      , orgName
+      , saveName
+      , fileSize
+      , filePath
+from attach
+;
+

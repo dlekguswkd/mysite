@@ -23,7 +23,7 @@
 				<h2>갤러리</h2>
 				<ul>
 					<li><a href="">일반갤러리</a></li>
-					<li><a href="http://localhost:8888/mysite/attach/form">파일첨부연습</a></li>
+					<li><a href="${pageContext.request.contextPath}/attach/form">파일첨부연습</a></li>
 				</ul>
 			</div>
 			<!-- //aside -->
