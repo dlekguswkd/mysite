@@ -58,13 +58,13 @@ public class ApiGuestbookController {
 	//http://localhost:8888/mysite/guestbook/remove
 	@ResponseBody
 	@RequestMapping(value="/api/guestbook/remove", method= {RequestMethod.GET, RequestMethod.POST})
-	public GuestbookVo remove(@ModelAttribute GuestbookVo guestbookVo) {
+	public int remove(@ModelAttribute GuestbookVo guestbookVo) {
 		System.out.println("ApiGuestbookController.remove()");
-		System.out.println(guestbookVo);
+		//System.out.println(guestbookVo);
 		
-		GuestbookVo gVo = guestbookService.exeDeleteGuestbook(guestbookVo);
-		System.out.println(gVo);
-		return gVo;
+		int count = guestbookService.exeDeleteGuestbook(guestbookVo);
+		System.out.println(count);
+		return count;
 	}
 	
 	

@@ -28,6 +28,7 @@ public class GuestbookService {
 	
 	/* 방명록 등록 */
 	public int exeWriteGuestbook(GuestbookVo guestbookVo) {
+		System.out.println("GuestbokService.exeWriteGuestbook()");
 		
 		int count = guestbookDao.insertGuestbook(guestbookVo);
 		
@@ -36,12 +37,12 @@ public class GuestbookService {
 	
 	
 	/* 방명록 삭제 */
-	public GuestbookVo exeDeleteGuestbook(GuestbookVo guestbookVo){
+	public int exeDeleteGuestbook(GuestbookVo guestbookVo){
 		System.out.println("GuestbokService.exeDeleteGuestbook()");
 		
-		GuestbookVo deleteGuestbook =guestbookDao.deleteGuestbook(guestbookVo);
+		int count = guestbookDao.deleteGuestbook(guestbookVo);
 		
-		return deleteGuestbook;
+		return count;
 	}
 	
 	

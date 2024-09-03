@@ -99,7 +99,7 @@
 									<th><label class="form-text" for="input-uname">이름</label></th>
 									<td><input id="input-uname" type="text" name="name" value=""></td>
 									<th><label class="form-text" for="input-pass">패스워드</label></th>
-									<td><input id="input-pass"type="password" name="pass" value=""></td>
+									<td><input id="input-pass" type="password" name="pass" value=""></td>
 								</tr>
 								<tr>
 									<td colspan="4"><textarea name="content" cols="72" rows="5"></textarea></td>
@@ -245,15 +245,16 @@ function deleteRemove() {
 			console.log(response); 		//수신데이타
 			console.log(response.data);
 			
-			if(response.data != null ) {	// 뭐가 넘어오면 (비밀번호가 맞으면)
+			if(response.data == 1) {	// 뭐가 넘어오면 (비밀번호가 맞으면)
 				// 화면에서 지우기
 				let delId = '#t-'+ no;
-				let removeTable = document.querySelector(delId);
+				console.log(delId);
+				let removeTable= document.querySelector(delId);
 				console.log(removeTable);
 				removeTable.remove();
-				closeModal();
+				closeMadal();
 				
-			}else if(response.data == null) {							// 비밀번호가 틀리면
+			}else {							// 비밀번호가 틀리면
 				alert('비밀번호를 확인하세요');
 				// 모달창 닫기
 			}
@@ -354,9 +355,10 @@ function addRender(event) {
 		render(response.data, 'up');		// 위에다가 넣어줘
 		
 		// 폼 비우기 (등록하고나면 등록한내용 사라지게하는) 둘중하나 선택해서 사용가능
-		guestbookForm.reset();		// nameTag.value='';
-									// passwordTag.value='';
-									// contentTag.value='';
+		// guestbookForm.reset();		
+		nameTag.value='';
+		passwordTag.value='';
+		contentTag.value='';
 		
 	}).catch(function (error) {
 		console.log(error);

@@ -58,3 +58,8 @@ where id = 'jung'
 and password = '1234'
 ;
 
+
+-- 아이디 중복체크
+select count(*)
+from users
+where id = '2';

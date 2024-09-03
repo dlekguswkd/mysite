@@ -36,16 +36,12 @@ public class GuestbookDao {
 	
 	
 	/* 방명록 삭제 */
-	public GuestbookVo deleteGuestbook(GuestbookVo guestbookVo){
+	public int deleteGuestbook(GuestbookVo guestbookVo){
 		System.out.println("guestbookDao.deleteGuestbook()");
 		
 		int count = sqlSession.delete("guestbook.delete", guestbookVo);
 		
-		if(count == 1){				// 넘어온게 있을때
-			return guestbookVo;
-		}else{
-			return null;
-		}
+		return count;
 	}
 
 	

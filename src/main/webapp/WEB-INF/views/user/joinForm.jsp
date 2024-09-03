@@ -10,6 +10,9 @@
 <link href="${pageContext.request.contextPath}/assets/css/mysite.css" rel="stylesheet" type="text/css">
 <link href="${pageContext.request.contextPath}/assets/css/user.css" rel="stylesheet" type="text/css">
 
+<!-- Axios 라이브러리 포함 -->
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
 </head>
 
 <body>
@@ -51,9 +54,11 @@
 
 							<!-- 아이디 -->
 							<div class="form-group">
-								<label class="form-text" for="input-uid">아이디</label> <input type="text" id="input-uid" name="id" value="" placeholder="아이디를 입력하세요">
-								<button type="button" id="">중복체크</button>
+								<label class="form-text" for="input-uid">아이디</label> 
+								<input type="text" id="input-uid" name="id" value="" placeholder="아이디를 입력하세요">
+								<button type="button" id="btnIdCheck">중복체크</button>
 							</div>
+							<div id="message"></div>
 
 							<!-- 비밀번호 -->
 							<div class="form-group">
@@ -103,6 +108,67 @@
 
 	</div>
 	<!-- //wrap -->
+	
+	
+<script>
+// Dom Tree 완료되었을때 이벤트 등록
+document.addEventListener('DOMContentLoaded', function(){
+	console.log('DOM tree 완료');
+	
+	// 중복체크 버튼 태그잡아오고 이벤트 등록
+	let btnIdCheck = document.querySelector('#btnIdCheck');
+	btnIdCheck.addEventListener('click', idCheck);
+		
+	
+});
+
+////////////////////////// 메소드 ////////////////////////////////
+
+function idCheck() {
+	console.log('중복체크버튼 클릭');
+	
+	// 데이터 수집
+	let txtIdTag = document.querySelector('#input-uid');
+	let id = txtIdTag.value;
+
+	
+	// 요청(통신)
+	axios({
+		method: 'get', 				// put, post, delete
+		url: '${pageContext.request.contextPath}/api/user/idcheck',
+		headers: {"Content-Type" : "application/json; charset=utf-8"},		 //전송타입
+		params: {id: id}, 			//get방식 파라미터로 값이 전달  하나라서 직접 넣음
+		//data: guestbookVo, 			//put, post, delete 방식 자동으로 JSON으로 변환 전달
+	
+		responseType: 'json' 			//수신타입
+
+	}).then(function (response) {
+		console.log(response); 		//수신데이타
+		console.log(response.data); 
+		let can = response.data;
+		
+		// 그리기
+		// 태그잡아오고 그리기
+		let messageTag = document.querySelector('#message');
+		
+		if(can == true) {
+			messageTag.textContent = '사용할 수 있는 아이디입니다.';	
+			messageTag.style.color = '#0000ff';
+		}else {
+			messageTag.textContent = '이미 가입된 아이디입니다.';
+			messageTag.style.color = '#ff0000';
+		}
+		
+
+	}).catch(function (error) {
+		console.log(error);
+
+	});
+	
+}
+
+
+</script>
 
 </body>
 

@@ -68,7 +68,7 @@ public class GuestbookController {
 		
 		System.out.println("GuestbookController.guestbookDelete()");
 		
-		GuestbookVo deleteGuestbook = guestbookService.exeDeleteGuestbook(guestbookVo);
+		guestbookService.exeDeleteGuestbook(guestbookVo);
 		
 		return "redirect:/guestbook/guestbookform";
 	}
